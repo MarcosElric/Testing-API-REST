@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //Setup port variable
-let port = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8000;
 
 //ROUTES FOR API
 
@@ -160,6 +160,6 @@ router
 app.use("/api", router);
 
 //Start the server
-app.listen(port, () => {
-  console.log("Server listening on port " + port);
+app.listen(PORT, () => {
+  console.log("Server listening on port " + PORT);
 });
