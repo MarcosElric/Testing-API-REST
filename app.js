@@ -29,7 +29,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //Setup port variable
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.OPENSHIFT_NODEJS_PORT || 8000;
+const serverIP = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 
 app.get("/", (req, res) => {
   res.send("Hellou");
@@ -165,6 +166,6 @@ router
 app.use("/api", router);
 
 //Start the server
-app.listen(PORT, () => {
+app.listen(PORT, serverIP, () => {
   console.log("Server listening on port " + PORT);
 });
